@@ -1,9 +1,9 @@
 package com.perficient.dalefit.entity;
 
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.Period;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -34,13 +34,13 @@ public class Activity {
 	@Column(name="description", length=500)
 	String description;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="sport_id")
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="sport")
 	//@JsonIgnore
 	Sport sport;
 	
 	LocalDate date;
 	LocalTime startTime;
-	Period duration;
+	Duration duration;
 	
 }

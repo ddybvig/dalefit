@@ -5,9 +5,6 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +13,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 
@@ -34,13 +33,22 @@ public class Activity {
 	@Column(name="description", length=500)
 	String description;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne
 	@JoinColumn(name="sport")
 	//@JsonIgnore
 	Sport sport;
 	
+	@Temporal(TemporalType.DATE)
 	LocalDate date;
+	
+	@Temporal(TemporalType.TIME)
 	LocalTime startTime;
+	
+	//TODO: implement dateTime instead of date and time to make sorting on the same date easier
+	//LocalDateTime dateTime;
+	
 	Duration duration;
+	
+	double distanceInMiles;
 	
 }

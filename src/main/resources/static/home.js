@@ -5,8 +5,9 @@ $(document).ready(function() {
 				for (var i = 0; i < json.length; i++) {
 					var link = 'activity/' + json[i].id;
 					tr.push('<tr>');
-					tr.push('<td>' + json[i].id + '</td>');
+					tr.push('<td>' + json[i].date + '</td>');
 					tr.push('<td><a href=' + link + '>' + json[i].title + '</a></td>');
+					tr.push('<td>' + json[i].sport.name + '</td>');
 					tr.push('<td>' + json[i].description + '</td>');
 
 					tr.push('</tr>');

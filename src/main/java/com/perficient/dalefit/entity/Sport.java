@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Sport {
 	Long id;
 	@Column(name="name")
 	String name;
-	@OneToMany(mappedBy="sport")
+	@OneToMany(mappedBy="sport", cascade=CascadeType.ALL)
 	@JsonIgnore
 	List<Activity> activities;
 	

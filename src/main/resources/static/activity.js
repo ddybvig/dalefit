@@ -1,14 +1,22 @@
 $('#saveActivity').click(function(){
 	saveActivity();
 })
+var duration = 0;
+var hours = 0;
+var minutes = 0;
+var seconds = 0;
 function saveActivity() {
+	hours = parseInt($('#hours').val());
+	minutes = parseInt($('#minutes').val());
+	seconds = parseInt($('#seconds').val());
+	duration = hours*3600 + minutes*60 + seconds;
 	var formData = {
 	title: $('#title').val(),
 	description: $('#description').val(),
-	sport: {sport: $('#sport').val()},
+	sport: {id: $('#sport').val()},
 	date: $('#date').val(),
 	startTime: $('#startTime').val(),
-	duration: calculateDurationInSeconds
+	duration: duration
 };
 console.log(formData);
 		$.ajax({
@@ -22,7 +30,6 @@ console.log(formData);
 
 function getSports() {
 	$.getJSON('http://localhost:8080/sports', function(json){
-		console.log("where sports?");
 				var tr=[];
 				for (var i = 0; i < json.length; i++) {
 					tr.push('<option value=' + json[i].id + '>' + json[i].name + '</option>');
@@ -30,14 +37,6 @@ function getSports() {
 				$('select').append($(tr.join('')));
 	})
 }
-var hours = $('#hours');
-var minutes = $('#minutes');
-var seconds = $('#seconds');
-function calculateDurationInSeconds(hours, minutes, seconds) {
-	return hours*3600 + minutes*60 + seconds;
-}
-
 $(document).ready(function() {
-	console.log("hello there")
 	console.log(getSports());
 });

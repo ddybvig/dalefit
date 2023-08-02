@@ -1,6 +1,7 @@
 package com.perficient.dalefit.controllers;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class MainController {
 	
 	@GetMapping("/")
 	public ResponseEntity<List<Activity>> home() {
-		return new ResponseEntity<List<Activity>>(jpa.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Activity>>(jpa.findByOrderByDateDesc(), HttpStatus.OK);
 	}
 	
 	//non-jpa DAO implementations

@@ -1,9 +1,7 @@
 package com.perficient.dalefit.dao;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.perficient.dalefit.entity.Activity;
@@ -12,6 +10,5 @@ import com.perficient.dalefit.entity.Activity;
 
 public interface ActivityDAOJpa extends CrudRepository<Activity, Long> {
 	List<Activity> findAll();
-	List<Activity> findAllOrderByDate(LocalDate date);
 	List<Activity> findByOrderByDateDesc();
 }

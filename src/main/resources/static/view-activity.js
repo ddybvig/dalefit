@@ -1,6 +1,8 @@
 console.log("hello");
 $(document).ready(function() {
-    $.getJSON('http://localhost:8080', function(json) {
+var searchParams = new URLSearchParams(window.location.search);
+console.log(searchParams);
+    $.getJSON('http://localhost:8080/activity/' + searchParams, function(json) {
 				var tr=[];
 				for (var i = 0; i < json.length; i++) {
 					var link = 'activity/' + json[i].id;

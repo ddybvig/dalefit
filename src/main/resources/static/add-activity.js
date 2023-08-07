@@ -16,7 +16,8 @@ function saveActivity() {
 	sport: {id: $('#sport').val()},
 	date: $('#date').val(),
 	startTime: $('#startTime').val(),
-	duration: duration
+	duration: duration,
+	distanceInMiles: parseFloat($('#distance').val())
 };
 console.log(formData);
 		$.ajax({

@@ -31,7 +31,7 @@ public class ActivityController {
 	public Optional<Activity> getActivity(@PathVariable Long activityId) {
 		return jpa.findById(activityId);
 	}
-	
+
 	@DeleteMapping("delete-activity/{activityId}")
 	public void deleteActivity(@PathVariable Long activityId) {
 		jpa.deleteById(activityId);

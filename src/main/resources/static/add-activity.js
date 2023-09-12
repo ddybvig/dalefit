@@ -1,6 +1,7 @@
 $('#saveActivity').click(function(){
 	saveActivity();
 })
+
 var duration = 0;
 var hours = 0;
 var minutes = 0;

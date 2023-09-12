@@ -33,7 +33,7 @@ public class MainController {
 	
 	Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	@GetMapping("/")
+	@GetMapping("home")
 	public ResponseEntity<List<Activity>> home() {
 		return new ResponseEntity<List<Activity>>(jpa.findByOrderByDateDesc(), HttpStatus.OK);
 	}

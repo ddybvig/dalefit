@@ -1,6 +1,6 @@
 console.log("hello");
 $(document).ready(function() {
-    $.getJSON('http://localhost:8080', function(json) {
+    $.getJSON('http://localhost:8080/home', function(json) {
 				var tr=[];
 				for (var i = 0; i < json.length; i++) {
 					var link = 'activity/' + json[i].id;
